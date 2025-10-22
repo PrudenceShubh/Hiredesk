@@ -1,12 +1,11 @@
-
 require('dotenv').config();
 const express = require('express')
 const mongoose= require('mongoose');
 const cors = require("cors")
-const jobcontroller = require('./controller/jobscontroller');
+const {jobcontroller, jobfetcher, jobdelete} = require('./controller/jobscontroller');
 const signincontroller = require('./controller/signinController');
 const loginController = require('./controller/loginController');
-const {feedbackcontrole,feedbackFatcher} = require('./controller/feedbackcontroller');
+const {feedbackcontrole, feedbackFatcher} = require('./controller/feedbackcontroller');
 
 
 const dburi = process.env.MONGO_DB_URI
@@ -31,13 +30,13 @@ app.get("/",(req,res)=>{
     res.send("Hello welcome to the port ")
 })
 
-app.post("/interviewer/jobpost",jobcontroller)
-app.post("/usersignin",signincontroller)
-app.post("/userlogin",loginController)
-app.post("/user/feedback",feedbackcontrole)
-app.get("/user/fetchfeedback",feedbackFatcher)
-
-
+app.post("/interviewer/jobpost", jobcontroller)
+app.get("/interviewer/fetchjobs", jobfetcher)
+app.delete("/interviewer/deletejob/:id", jobdelete)
+app.post("/usersignin", signincontroller)
+app.post("/userlogin", loginController)
+app.post("/user/feedback", feedbackcontrole)
+app.get("/user/fetchfeedback", feedbackFatcher)
 
 app.listen(port, ()=>{
     console.log(`The server is connected to the port localhost:${port}`)

@@ -1,11 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 const Banner = ({ user }) => {
   let bannertext = "Candidate";
   let buttonforboth = "Post Jobs";
+  let postforboth = "/schdeule"
+  
   if (user === "Interviewer") {
     bannertext = "job";
     buttonforboth = "Find Jobs";
+    postforboth="/find"
   }
   return (
     <div>
@@ -29,7 +34,7 @@ const Banner = ({ user }) => {
             Job seekers get faster responses, and employers find the perfect
             candidates more efficiently.
           </p>
-          <button className="bg-green-700 text-xl cursor-pointer hover:bg-green-600 font-extrabold p-4 rounded mt-2">{buttonforboth}</button>
+          <Link to={postforboth}><button className="bg-green-700 text-xl cursor-pointer hover:bg-green-600 font-extrabold p-4 rounded mt-2">{buttonforboth}</button></Link>
           <p></p>
         </div>
         <div className="w-[30%] h-65 border-2 border-[#343740] rounded-xl">

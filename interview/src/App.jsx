@@ -4,6 +4,8 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import Homepage from './pages/homepage'
 import Nave from './components/nave'
 import Mainpage from './pages/mainpage';
+import Jobfinding from './pages/jobfinding';
+import Scheduling from './pages/scheduling';
 
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
         <Route path='/mainpage' element={<Mainpage/>} />
         <Route path='/schedual' element={<schedual/>} />
         <Route path='/interview' element={<interview/>} />
+        <Route path='/schdeule' element={<Scheduling/>} />
+        <Route path='/find' element={<Jobfinding/>} />
       </Routes>
     </>
   );
