@@ -1,9 +1,0 @@
-import { UserProvider } from './contexts/UserContext';
-
-// ...existing code...
-
-<UserProvider>
-  {/* Your existing app routes/components */}
-</UserProvider>
-
-// ...existing code...
